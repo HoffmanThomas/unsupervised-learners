@@ -6,9 +6,13 @@ from sklearn import cross_validation
 from sklearn.utils import shuffle
 from sklearn.metrics import roc_curve, auc
 from sklearn.cross_validation import LeaveOneOut
+<<<<<<< HEAD
 bad code
 
 >>>>>>> 4c95b32240482334ee466045df391a2262bda6bb
+=======
+print("This is good")
+>>>>>>> Bill
 #Load up the labels for the wine ratings  
 whitedata = np.genfromtxt('winequality-white.csv',delimiter=';',names=True)
 classlabel = np.genfromtxt('/Datasets/winequality-2classlabels-white.csv',delimiter=',',names=True)
@@ -45,5 +49,3 @@ fpr, tpr, thresholds = roc_curve(y_test, probas_[:, 1])
 roc_auc = auc(fpr,tpr) 
 print("Area under the ROC curve : %0.4f" % roc_auc)
 
-#hello world
-#goodbye world
