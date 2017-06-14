@@ -1,7 +1,7 @@
-from sklearn import svm
 import numpy as np
 from matplotlib import pylab as pl
 from scipy import stats
+from sklearn import svm
 from sklearn import cross_validation
 from sklearn.utils import shuffle
 from sklearn.metrics import roc_curve, auc
@@ -43,4 +43,3 @@ fpr, tpr, thresholds = roc_curve(y_test, probas_[:, 1])
 roc_auc = auc(fpr,tpr) 
 print("Area under the ROC curve : %0.4f" % roc_auc)
 
-#hello world
