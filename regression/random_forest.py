@@ -17,7 +17,7 @@ print("\nY DATA \n", y_data)
 X = np.array([data[x] for x in data.dtype.names])
 scaledData = preprocessing.scale(X) #scale the data
 mean = scaledData.mean(axis = 0) #mean of scaled data
-stdev = scaledData.std(axis = 0) #Std dev of scaled data
+stdev = scaledData.std(axis = 0) #Std dev of scaled dat
 
 data = scaledData
 
@@ -31,4 +31,7 @@ X_train, X_test, y_train, y_test = cross_validation.train_test_split(x_data, y_d
 rf = ensemble.RandomForestClassifier(n_estimators=128,random_state=0,bootstrap=True)
 rf.fit(X_train,y_train.ravel())
 print (rf.score(X_test,y_test))
+
+#edit
+
 

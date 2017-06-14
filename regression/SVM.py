@@ -45,6 +45,7 @@ print("Area under the ROC curve : %0.4f" % roc_auc)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #Bills edit
 #2nd edit 
 =======
@@ -57,3 +58,8 @@ print("Area under the ROC curve : %0.4f" % roc_auc)
 #Bills edit
 #2nd edit 
 >>>>>>> c9a50f10a397de1948e3c69ebd73849b19a5a3c3
+=======
+
+#Bills edit
+#2nd edit 
+>>>>>>> 07c31467e887a1bb4b7956eda0c7d60e879cdcea
