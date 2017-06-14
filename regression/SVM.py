@@ -6,7 +6,11 @@ from sklearn import cross_validation
 from sklearn.utils import shuffle
 from sklearn.metrics import roc_curve, auc
 from sklearn.cross_validation import LeaveOneOut
+<<<<<<< HEAD
 print('good code now')
+=======
+
+>>>>>>> 4c95b32240482334ee466045df391a2262bda6bb
 #Load up the labels for the wine ratings  
 whitedata = np.genfromtxt('winequality-white.csv',delimiter=';',names=True)
 classlabel = np.genfromtxt('/Datasets/winequality-2classlabels-white.csv',delimiter=',',names=True)
