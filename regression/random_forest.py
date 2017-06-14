@@ -32,9 +32,3 @@ rf = ensemble.RandomForestClassifier(n_estimators=128,random_state=0,bootstrap=T
 rf.fit(X_train,y_train.ravel())
 print (rf.score(X_test,y_test))
 
-
-print ('Hi')
-
-
-
-#Trees are cool!!!
