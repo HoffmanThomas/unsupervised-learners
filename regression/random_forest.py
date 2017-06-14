@@ -17,7 +17,7 @@ print("\nY DATA \n", y_data)
 X = np.array([data[x] for x in data.dtype.names])
 scaledData = preprocessing.scale(X) #scale the data
 mean = scaledData.mean(axis = 0) #mean of scaled data
-stdev = scaledData.std(axis = 0) #Std dev of scaled data
+stdev = scaledData.std(axis = 0) #Std dev of scaled dat
 
 data = scaledData
 
