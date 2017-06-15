@@ -32,15 +32,15 @@ rf = ensemble.RandomForestClassifier(n_estimators=128,random_state=0,bootstrap=T
 rf.fit(X_train,y_train.ravel())
 print (rf.score(X_test,y_test))
 
-<<<<<<< HEAD
 
 
-print ('Yo')
-=======
+
+
+
 print ('Hey')
 
 #New Comment
->>>>>>> c5b287d01ea6655ce62ca457d7578442f808ad4c
+
 
 
 
