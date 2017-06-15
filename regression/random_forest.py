@@ -33,18 +33,3 @@ rf.fit(X_train,y_train.ravel())
 print (rf.score(X_test,y_test))
 
 
-print ('Heyyyy')
-
-
-#Comment!!!!!
-#comment!!
-
-
-
-
-
-
-#Trees are cool!!!
-#Dogs are cool!
-#Jessi is cool
-
