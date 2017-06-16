@@ -51,7 +51,8 @@ net = buildNetwork(data.indim,20,data.outdim, bias=True, outputbias=True, outcla
 
 
 #Create the training data
-trainer = BackpropTrainer(net, dataset=trndata, learningrate=5, momentum=0.01, weightdecay=0, verbose=False)
-
+trainer = BackpropTrainer(net, dataset=trndata, learningrate=5, momentum=0.01, weightdecay=0, verbose=True)
+# p = net.activateOnDataset( data )
+# print (p)
 
 trainer.trainUntilConvergence()
