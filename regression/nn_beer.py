@@ -4,7 +4,7 @@ from pybrain.datasets import ClassificationDataSet
 from pybrain.tools.shortcuts import buildNetwork
 from pybrain.supervised.trainers import BackpropTrainer
 from pybrain.structure.modules import SigmoidLayer
-from pybrain.structure.modules   import SoftmaxLayer
+from pybrain.structure.modules   import LinearLayer
 from pybrain.utilities import percentError
 
 # Data and outputs
@@ -50,14 +50,20 @@ for n in range(0, trndata_temp.getLength()):
     trndata.addSample( trndata_temp.getSample(n)[0], trndata_temp.getSample(n)[1] )
 
 #create our neural net 
-net = buildNetwork(data.indim,20,data.outdim, bias=True, outputbias=True, outclass=SigmoidLayer)
+net = buildNetwork(data.indim,15,data.outdim, bias=True, outputbias=True,hiddenclass = SigmoidLayer, outclass=SigmoidLayer)
 
 #Create the training data
-trainer = BackpropTrainer(net, dataset=trndata, learningrate=5, momentum=0.01, weightdecay=0, verbose=True)
+trainer = BackpropTrainer(net, dataset=trndata,verbose = True)
 
 #trainer.trainUntilConvergence( verbose = True, validationProportion = 0.15, maxEpochs = 1000, continueEpochs = 10 )
+
+trainer.trainUntilConvergence(maxEpochs=200)
 
 out = net.activateOnDataset(tstdata).argmax(axis = 1)
 #output = np.array([net.activate(x) for x, _ in tstdata]).argmax(axis = 1)
 
 print(100 - percentError(out, tstdata_1d))
+
+
+
+guess = net.activate([14.13,4.1,2.74,24.5,96,2.05,0.76,0.56,1.35,9.2,0.61,1.6,560])
