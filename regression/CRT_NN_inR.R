@@ -9,6 +9,8 @@ pairs(CRT, cex=.5, pch=16)
 
 #predictive numerical response
 library(nnet)
+library(caret)
+library(lattice)
 nn1<-nnet(Strength~.,CRT1, linout=T, skip=F, size=10, decay=0.01, maxit=1000, trace=F)
 yhat<-as.numeric(predict(nn1))
 y<-CRT1[[9]]; e<-y-yhat
