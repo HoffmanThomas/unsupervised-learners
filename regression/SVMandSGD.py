@@ -1,4 +1,5 @@
 #SVM and SGD Example in Python
+#
 import csv
 import numpy as np
 from matplotlib import pylab as pl
@@ -43,8 +44,8 @@ print("\nX DATA \n", x_data)
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(x_data, y_data, test_size=0.90, random_state=random_state)
 
 #Implement the SVM regression method
-classifier = SGDClassifier(loss="log", penalty='l2', shuffle=True)
-classifier = classifier.fit(X_train, y_train.ravel())
+classifier = SGDClassifier(loss="log", penalty='l2', shuffle=True, alpha=0.0001)
+classifier=classifier.fit(X_train, y_train.ravel())
 
 #Creates predictions
 predictionSpace=classifier.predict(X_test)
