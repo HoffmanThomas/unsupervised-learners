@@ -4,7 +4,7 @@ from pybrain.datasets import ClassificationDataSet
 from pybrain.tools.shortcuts import buildNetwork
 from pybrain.supervised.trainers import BackpropTrainer
 from pybrain.structure.modules import SigmoidLayer
-
+from pybrain.utilities import percentError
 
 # Data and outputs
 
@@ -46,4 +46,7 @@ net = buildNetwork(data.indim,20,data.outdim, bias=True, outputbias=True, outcla
 trainer = BackpropTrainer(net, dataset=trndata, learningrate=5, momentum=0.01, weightdecay=0, verbose=True)
 
 
-trainer.trainUntilConvergence()
+#trainer.trainUntilConvergence()
+
+out = net.activateOnDataset(tstdata).argmax(axis = 1)
+print (1 - percentError(out, tstdata['class']))
