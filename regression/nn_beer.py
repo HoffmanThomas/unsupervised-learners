@@ -6,7 +6,10 @@ from pybrain.supervised.trainers import BackpropTrainer
 from pybrain.structure.modules import SigmoidLayer
 
 
+# Data and outputs
+
 #Pull in the data from the csv
+
 datain=np.loadtxt(open("beerdata.csv","rb"), delimiter=",", skiprows=0)
 
 #Set Y to be the first column
@@ -17,6 +20,7 @@ X = datain[:,1:] # 178x13 matrix of data points
 
 #Use Z-score to normalize the x data
 X = stats.zscore(X, axis=0) # normalize the data by feature
+
 
 #Sets m as the number of rows in X (X.shape[1] would be the number of columns)
 num_rows = X.shape[0] # number of data points
@@ -55,4 +59,4 @@ trainer = BackpropTrainer(net, dataset=trndata, learningrate=5, momentum=0.01, w
 # p = net.activateOnDataset( data )
 # print (p)
 
-trainer.trainUntilConvergence()
+#trainer.trainUntilConvergence()
