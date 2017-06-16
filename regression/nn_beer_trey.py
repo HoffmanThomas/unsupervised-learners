@@ -26,10 +26,12 @@ tstdata, trndata = data.splitWithProportion(0.25)
 print(trndata.outdim)
 
 net = buildNetwork(13, 20, 3, bias = True, outputbias = True, outclass = SigmoidLayer)
-trainer = BackpropTrainer(net, dataset = trndata, learningrate=5, momentum = 0.01, weightdecay = 0, verbose = False)
+trainer = BackpropTrainer(net, dataset = trndata, learningrate=5, momentum = 0.01, weightdecay = 0, verbose = True)
 
-for i in range(10):
-  trainer.trainEpochs(5)
-  trainer.verbose = True
-  trainer.trainEpochs(5)
-  trainer.verbose = False
+# for i in range(10):
+#   trainer.trainEpochs(5)
+#   trainer.verbose = True
+#   trainer.trainEpochs(5)
+#   trainer.verbose = False
+
+trainer.trainUntilConvergence()

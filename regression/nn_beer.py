@@ -58,4 +58,4 @@ net = buildNetwork(data.indim,20,data.outdim, bias=True, outputbias=True, outcla
 trainer = BackpropTrainer(net, dataset=trndata, learningrate=5, momentum=0.01, weightdecay=0, verbose=False)
 
 
-trainer.trainUntilConvergence()
+#trainer.trainUntilConvergence()
