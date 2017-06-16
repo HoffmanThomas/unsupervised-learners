@@ -76,6 +76,8 @@ print("\nX DATA \n", x_data)
 # print ('Best k for that score: ',opt_k)
 # print ('Best test size for that score: ',opt_ts)
 
+
+#block will let you enter a new data point and see the prediction 
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(x_data, y_data, test_size=.5, random_state=0)
 knnClassifier = KNeighborsClassifier(n_neighbors=10,weights='distance',algorithm='auto').fit(X_train, y_train.ravel())
 
@@ -83,7 +85,7 @@ knnClassifier = KNeighborsClassifier(n_neighbors=10,weights='distance',algorithm
 score = knnClassifier.score(X_test,y_test)
 print(score)
 
-
+#enter prediction here
 test = np.array( preprocessing.scale([390,195.2,0,180.1,14.1,929.1,770.7,98]))
 test = test.reshape(1,-1)
 pred = knnClassifier.predict(test)
