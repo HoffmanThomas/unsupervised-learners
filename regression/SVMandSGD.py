@@ -44,7 +44,7 @@ X_train, X_test, y_train, y_test = cross_validation.train_test_split(x_data, y_d
 
 #Implement the SVM regression method
 classifier = SGDClassifier(loss="log", penalty='l2', shuffle=True)
-classifier=classifier.fit(X_train, y_train.ravel())
+classifier = classifier.fit(X_train, y_train.ravel())
 
 #Creates predictions
 predictionSpace=classifier.predict(X_test)
