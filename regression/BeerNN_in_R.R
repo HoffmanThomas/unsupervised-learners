@@ -25,7 +25,7 @@ phat<-predict(nn1,type="raw")
 apply(phat,1,sum)
 
 #Predict class
-yhat<-predict(nn1, type=c("class"))
+yhat<-predict(nn1, type="class")
 
 #Output misclassification rate
 y<-
