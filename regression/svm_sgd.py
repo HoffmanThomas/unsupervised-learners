@@ -1,4 +1,4 @@
-#SVM Example in Python
+#SVM and SGD Example in Python
 import csv
 import numpy as np
 from matplotlib import pylab as pl
@@ -9,7 +9,7 @@ from sklearn.utils import shuffle
 from sklearn.metrics import roc_curve, auc
 from sklearn.cross_validation import LeaveOneOut
 from sklearn import preprocessing
-
+from sklearn.linear_model import SGDClassifier
 
 #seed for splitting data into training and testing 
 random_state = np.random.RandomState(0) 
@@ -43,8 +43,8 @@ print("\nX DATA \n", x_data)
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(x_data, y_data, test_size=0.90, random_state=random_state)
 
 #Implement the SVM regression method
-classifier = svm.SVC(probability = True, random_state=0)
-classifier=classifier.fit(X_train, y_train)
+classifier = SGDClassifier(loss="log", penalty='l2', shuffle=True, alpha=0.0001)
+classifier=classifier.fit(X_train, y_train.ravel())
 
 #Creates predictions
 predictionSpace=classifier.predict(X_test)
