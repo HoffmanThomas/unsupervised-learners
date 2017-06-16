@@ -1,16 +1,7 @@
-#SVM and SGD Example in Python
-#
 import csv
 import numpy as np
-from matplotlib import pylab as pl
-from scipy import stats
-from sklearn import svm
-from sklearn import cross_validation
-from sklearn.utils import shuffle
-from sklearn.metrics import roc_curve, auc
-from sklearn.cross_validation import LeaveOneOut
-from sklearn import preprocessing
-from sklearn.linear_model import SGDClassifier
+import sklearn as sk
+from sklearn import cross_validation, preprocessing, ensemble
 
 #seed for splitting data into training and testing 
 random_state = np.random.RandomState(0) 
@@ -43,16 +34,28 @@ print("\nX DATA \n", x_data)
 #partition the training and testing data sets
 X_train, X_test, y_train, y_test = cross_validation.train_test_split(x_data, y_data, test_size=0.90, random_state=random_state)
 
-#Implement the SVM regression method
-classifier = SGDClassifier(loss="log", penalty='l2', shuffle=True, alpha=0.0001)
-classifier=classifier.fit(X_train, y_train.ravel())
+#n_estimators: Number of trees, generate the random forest
+rf = ensemble.RandomForestClassifier(n_estimators=128,random_state=0,bootstrap=True)
 
-#Creates predictions
-predictionSpace=classifier.predict(X_test)
-print ("Classification score ",classifier.score(X_test, y_test))
-probas_ = classifier.predict_proba(X_test)
+#fit the training data to the random forest
+rf.fit(X_train,y_train.ravel())
 
-# get the false positive rate, true positive rate and threshold
-fpr, tpr, thresholds = roc_curve(y_test, probas_[:, 1])
-roc_auc = auc(fpr,tpr) 
-print("Area under the ROC curve : %0.4f" % roc_auc)
+#test our set and observe the accuracy of our classification
+print("\nThis model scored: ", rf.score(X_test,y_test))
+
+#store the predictions as an array of 1s and 0s representing high and low
+predictions = rf.predict(X_test)
+
+#initialize array for storing text interpretation
+readable_pred = []
+
+#convert the 0s and 1s into interpretable data
+for item in predictions:
+	if item == 1: #if item == 1 it is high strength
+		readable_pred.append("H")
+	elif item == 0: #if item == 0 it is low strength
+		readable_pred.append("L")
+
+#print predictions 
+print("\nPredictions:\n", readable_pred)
+
