@@ -16,7 +16,7 @@ beer1[2:k]<-sapply(beer1[2:k], function(x) (x-mean(x))/sd(x)) #standardize predi
 ##75% of the sample size
 smp_size<-floor(0.75*nrow(beer1))
 #Set seed to make partition reproducible
-set.seed(123)
+set.seed(120)
 train_ind<-sample(seq_len(nrow(beer1)), size=smp_size)
 train<-beer1[train_ind,]
 test<-beer1[-train_ind,]
