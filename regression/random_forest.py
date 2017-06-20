@@ -32,10 +32,10 @@ x_data = np.array([data[0], data[1], data[2], data[3], data[4], data[5], data[6]
 print("\nX DATA \n", x_data)
 
 #partition the training and testing data sets
-X_train, X_test, y_train, y_test = cross_validation.train_test_split(x_data, y_data, test_size=0.90, random_state=random_state)
+X_train, X_test, y_train, y_test = cross_validation.train_test_split(x_data, y_data, test_size=0.50, random_state=random_state)
 
 #n_estimators: Number of trees, generate the random forest
-rf = ensemble.RandomForestClassifier(n_estimators=128,random_state=0,bootstrap=True)
+rf = ensemble.RandomForestClassifier(n_estimators=128,max_features= 'log2',min_samples_leaf = 1,max_depth =9,random_state=0,bootstrap=True,verbose = True)
 
 #fit the training data to the random forest
 rf.fit(X_train,y_train.ravel())
@@ -45,6 +45,12 @@ print("\nThis model scored: ", rf.score(X_test,y_test))
 
 #store the predictions as an array of 1s and 0s representing high and low
 predictions = rf.predict(X_test)
+
+test = np.array( preprocessing.scale([139.6,209.4,0,192,0,1047,806.9,360]))
+test = test.reshape(1,-1)
+pred = rf.predict(test)
+print (pred)
+
 
 #initialize array for storing text interpretation
 readable_pred = []
