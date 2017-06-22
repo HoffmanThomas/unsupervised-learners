@@ -2,13 +2,12 @@ import pygraph
 from graphviz import Source
 import random
 import numpy as np
-
+import os 
 
 position =1
-
 g= pygraph.UndirectedGraph()
-
 q_tab = []
+moves = []
 
 
 def graph_to_dot(graph, node_renderer=None, edge_renderer=None):
@@ -45,18 +44,21 @@ def graph_to_dot(graph, node_renderer=None, edge_renderer=None):
 
 
 def build_graph():
-	for i in range(9):
+	for i in range(12):
 		g.new_node()
 
-	g.nodes[1]['data']['rw'] = 5 # 0,0
-	g.nodes[2]['data']['rw'] = 3 # 0,1
-	g.nodes[3]['data']['rw'] = 9 # 0,2
+	g.nodes[1]['data']['rw'] = 1 # 0,0
+	g.nodes[2]['data']['rw'] = 7 # 0,1
+	g.nodes[3]['data']['rw'] = 8 # 0,2
 	g.nodes[4]['data']['rw'] = 2 # 1,0
-	g.nodes[5]['data']['rw'] = 5 # 1,1
-	g.nodes[6]['data']['rw'] = 8 # 1,2
-	g.nodes[7]['data']['rw'] = 3 # 2,0
-	g.nodes[8]['data']['rw'] = 2 # 2,1
-	g.nodes[9]['data']['rw'] = 8# 2,2
+	g.nodes[5]['data']['rw'] = 1 # 1,1
+	g.nodes[6]['data']['rw'] = 1 # 1,2
+	g.nodes[7]['data']['rw'] = 1 # 2,0
+	g.nodes[8]['data']['rw'] = 1 # 2,1
+	g.nodes[9]['data']['rw'] = 100# 2,2
+	g.nodes[10]['data']['rw'] = 9# 3,0
+	g.nodes[11]['data']['rw'] = 10# 3,1
+	g.nodes[12]['data']['rw'] = 11# 3,2
 
 	g.new_edge(1, 2, cost=.3)
 	g.new_edge(1, 4, cost=.2)
@@ -77,7 +79,13 @@ def build_graph():
 	g.new_edge(7, 8, cost=.3)
 	g.new_edge(8, 9, cost=.1)
 
-	g.new_edge(1, 6, cost=.1)
+	g.new_edge(10, 3, cost=.1)
+	g.new_edge(10, 11, cost=.1)
+
+	g.new_edge(11, 6, cost=.1)
+	g.new_edge(11, 12, cost=.1)
+	g.new_edge(12, 9, cost=.1)
+	
 
 
 
@@ -90,42 +98,51 @@ def print_graph():
 def move():
 	global position
 	global q_tab
+	global moves
 	index = find_ele(q_tab,position)
 	curr_neigh=g.neighbors(position)
+	
 	if index != -1:
 		if np.random.uniform() < .9:
 			next_move = check_q(index)
 		else:
 			next_move=random.choice(curr_neigh)
 	else:
+		print
 		next_move=random.choice(curr_neigh)
+	
 	
 
 	if index != -1:
 		if (q_tab[index][1][next_move-1] == 0):
 			q_tab[index][1][next_move-1] = g.nodes[next_move]['data']['rw']
 	else:
-		row = position,[0,0,0,0,0,0,0,0,0]
+
+		row = position,([0] * g.num_nodes())
 		row[1][next_move-1]=g.nodes[next_move]['data']['rw']
 		q_tab.append(row)
 
 	
 	
-	#print('Position:',position,'Neighbors:',curr_neigh,'Next Move:',next_move)
+	# print('Position:',position,'Neighbors:',curr_neigh,'Next Move:',next_move)
+	if q_tab[index][1][next_move-1] == -1:
+			return -1
+	moves.append(position)
 	position=next_move
 
+# check about two q vals that are the same 
 def check_q(index):
-	mx = -1
-	opt_move = -1
+	opt_move = -2	
 	curr_neigh=g.neighbors(position)
+	#print('Neighbors',curr_neigh)
 	q_line = q_tab[index][1]
-	
-	for i in curr_neigh:
-		if q_line[i-1] > mx:
-			mx = q_line[i-1]
-			opt_move =i
-
+	mx = max(q_line)
+	opt_move = q_line.index(mx)+1
+	#print('Qline',q_line)
+	#print('Opt Move',opt_move)
 	return opt_move
+
+
 
 def print_q():
 	print((0,[1,2,3,4,5,6,7,8,9]))
@@ -147,20 +164,28 @@ i=0
 j=0
 inc =0
 min_steps =9999999999999
-for j in range(1000):
+for j in range(100000):
 	while True:
-		move()
+		wall=move()
+		if wall == -1:
+			break
 		inc+=1
 		if position == 9:
 			if inc < min_steps:
 				min_steps = inc
+				
+			print(moves)
 			break
+	moves =[]
+	# print_q()
 	position = 1	
 	inc=0	
 print ('\nMin Steps: ',min_steps)
 
-print_q()
-print_graph()
+# os.remove('C:/Users/wmalone/Desktop/Python/graph_struct/graph.gv')
+# os.remove('C:/Users/wmalone/Desktop/Python/graph_struct/graph.gv.pdf')
+#print_q()
+#print_graph()
 
 
 
