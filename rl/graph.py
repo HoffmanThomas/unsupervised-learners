@@ -164,7 +164,7 @@ i=0
 j=0
 inc =0
 min_steps =9999999999999
-for j in range(100000):
+for j in range(20):
 	while True:
 		wall=move()
 		if wall == -1:
