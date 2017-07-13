@@ -11,17 +11,14 @@ This script is the environment part of this example. The RL is in RL_brain.py.
 View more on my tutorial page: https://morvanzhou.github.io/tutorials/
 """
 
-
 import numpy as np
 np.random.seed(1)
 import tkinter as tk
 import time
 
-
 UNIT = 40   # pixels
 MAZE_H = 4  # grid height
 MAZE_W = 4  # grid width
-
 
 class Maze(tk.Tk, object):
     def __init__(self):
@@ -125,4 +122,3 @@ class Maze(tk.Tk, object):
     def render(self):
         time.sleep(0.1)
         self.update()
-

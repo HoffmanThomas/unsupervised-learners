@@ -2,7 +2,7 @@ import pygraph
 from graphviz import Source
 import random
 import numpy as np
-import os 
+import os
 
 position =1
 g= pygraph.UndirectedGraph()
@@ -39,8 +39,6 @@ def graph_to_dot(graph, node_renderer=None, edge_renderer=None):
     graph_string += '}'
 
     return graph_string
-
-
 
 
 def build_graph():
@@ -85,14 +83,11 @@ def build_graph():
 	g.new_edge(11, 6, cost=.1)
 	g.new_edge(11, 12, cost=.1)
 	g.new_edge(12, 9, cost=.1)
-	
-
-
 
 def print_graph():
 	string=graph_to_dot(g)
 	src = Source(string)
-	src.render('C:/Users/wmalone/Desktop/Python/graph_struct/graph.gv', view=True) 
+	src.render('C:/Users/wmalone/Desktop/Python/graph_struct/graph.gv', view=True)
 
 
 def move():
@@ -101,7 +96,7 @@ def move():
 	global moves
 	index = find_ele(q_tab,position)
 	curr_neigh=g.neighbors(position)
-	
+
 	if index != -1:
 		if np.random.uniform() < .9:
 			next_move = check_q(index)
@@ -110,29 +105,24 @@ def move():
 	else:
 		print
 		next_move=random.choice(curr_neigh)
-	
-	
 
 	if index != -1:
 		if (q_tab[index][1][next_move-1] == 0):
 			q_tab[index][1][next_move-1] = g.nodes[next_move]['data']['rw']
 	else:
-
 		row = position,([0] * g.num_nodes())
 		row[1][next_move-1]=g.nodes[next_move]['data']['rw']
 		q_tab.append(row)
 
-	
-	
 	# print('Position:',position,'Neighbors:',curr_neigh,'Next Move:',next_move)
 	if q_tab[index][1][next_move-1] == -1:
 			return -1
 	moves.append(position)
 	position=next_move
 
-# check about two q vals that are the same 
+# check about two q vals that are the same
 def check_q(index):
-	opt_move = -2	
+	opt_move = -2
 	curr_neigh=g.neighbors(position)
 	#print('Neighbors',curr_neigh)
 	q_line = q_tab[index][1]
@@ -155,7 +145,7 @@ def find_ele(arr,ele):
 		index+=1
 		if i[0] == ele:
 			return index
-	return -1	
+	return -1
 
 #main
 build_graph()
@@ -173,22 +163,16 @@ for j in range(100000):
 		if position == 9:
 			if inc < min_steps:
 				min_steps = inc
-				
+
 			print(moves)
 			break
 	moves =[]
 	# print_q()
-	position = 1	
-	inc=0	
+	position = 1
+	inc=0
 print ('\nMin Steps: ',min_steps)
 
 # os.remove('C:/Users/wmalone/Desktop/Python/graph_struct/graph.gv')
 # os.remove('C:/Users/wmalone/Desktop/Python/graph_struct/graph.gv.pdf')
 #print_q()
 #print_graph()
-
-
-
-
-
-
