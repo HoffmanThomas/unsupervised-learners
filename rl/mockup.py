@@ -19,7 +19,7 @@ def enrich(state,action):
 	elif action == 2:
 		state[5] = 1
 
-	return stat
+	return state
 
 def getReward(state):
 	classify= np.random.randint(1,100)

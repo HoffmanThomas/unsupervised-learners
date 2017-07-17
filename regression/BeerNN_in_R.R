@@ -27,7 +27,7 @@ library(nnet)
 library(lattice)
 library(ggplot2)
 library(caret)
-nn1<-nnet(train$V1~., data=train, linout=F, skip=F, size=10, decay=0.01, maxit=1000, trace=F)
+nn1<-nnet(train$FT.TP.RH~., data=train, linout=F, skip=F, size=10, decay=0.01, maxit=1000, trace=F)
 
 #Predict class
 yhat<-predict(nn1, newdata=test, type="class")
@@ -40,3 +40,4 @@ sum(y !=yhat)/length(y)
 #Output Prediction rate
 1-sum(y !=yhat)/length(y)
 
+rf<-rfsrc(train$V1~., data=train)
