@@ -292,7 +292,6 @@ def getReward(state,oldState):
     		an integer reward       	
     """
 	if np.count_nonzero(state[-6:]) > np.count_nonzero(oldState[-6:]):
-
 		if np.count_nonzero(state[-6:]) == 0:
 			return 0
 		elif np.count_nonzero(state[-6:]) == 1:
@@ -307,7 +306,7 @@ def getReward(state,oldState):
 			return (5)
 		elif np.count_nonzero(state[-6:]) == 6:
 			return (6)
-	return -10
+	return -3
 
 def assocRandomHelper(lst,ele):
 	"""Helper for the assocRandom function
@@ -355,6 +354,11 @@ def randoEnrich():
 	randomEnrichemnts = []
 	for i in range(6):
 		randomEnrichemnts.append(np.random.randint(0,2))
+
+	while np.count_nonzero(randomEnrichemnts) < 3:
+		randomEnrichemnts[np.random.randint(0,6)]=1
+
+
 	return randomEnrichemnts
 
 
@@ -466,6 +470,14 @@ def initNN(inputNodes,outputNodes):
 	return model
 
 #----------------------------------------------------------------------------------------------------------
+def incCounter(lst,ele):
+	for key,val in lst.items():
+		if key == ele:
+			lst[key]+=1 
+			return lst ,lst[key]
+	lst[ele]=0
+	return lst,0
+
 
 def runLearner(epochs,gamma,learningRate,epsilon):
 	"""Runs the Q-learner with a NN as the Q table 
@@ -487,7 +499,8 @@ def runLearner(epochs,gamma,learningRate,epsilon):
 	ents = initData()
 	#for now we are getting a map of each alert to a random reward list to simulate what these tools would actually return
 	enrichMap=(assocRandom(ents))
-
+	
+	counter = {}
 	#loop though how many alerts we have in the file
 	for i in range(epochs):
 	   
@@ -505,6 +518,7 @@ def runLearner(epochs,gamma,learningRate,epsilon):
 	    status = 1
 	    #grab the randomEnrichment list that is associated with the current alert
 	    randomEnrichemnts =enrichMap[i][1] 
+
 
 	    #keep going while we want to keep investigating this alert 
 	    while(status == 1):
@@ -528,6 +542,8 @@ def runLearner(epochs,gamma,learningRate,epsilon):
 		        new_state = enrich(ent, action , randomEnrichemnts)
 		        #get the reward associated with thaty enrichment
 		        reward = getReward(new_state,oldState)
+
+		      
 		        #mark down that we've checked this tool 
 		        toolChecked[action]=1
 
@@ -540,7 +556,7 @@ def runLearner(epochs,gamma,learningRate,epsilon):
 		        y[:] = qval[:]
 		        
 		        # if we're in a non-terminal state
-		        if reward < 4 :  
+		        if reward < 3:  
 		            update = learningRate * (reward + (gamma * maxQ))
 		        #terminal state		        
 		        else: 
@@ -555,15 +571,16 @@ def runLearner(epochs,gamma,learningRate,epsilon):
 	        #add a run 
 	        numRuns+=1
 
-	        #check if we have a sufficent reward or we've exhausted all searches and need to quit 
+	        #check if we have a sufficent reward or we've exhausted all searches and need to quit
 	        if reward >= 3 or numRuns > 20:		
 	            status = 0
 	            #print statements to show result
-	            if numRuns < 20: 
+	            if reward >=3:
+		            counter,count =incCounter(counter,''.join(str(e) for e in ent.state[:11]))
 		            print('Policy:',ent.policy)
 		            print('Rand Actions:', randActions)
 		            print('Print Q table', qval)
-		            print('Random Enrichment Decisions', randomEnrichemnts)
+		            print('Alert: ', ent.state[:11],'Random Enrichment Decisions:', randomEnrichemnts, 'Count:',count)
 		            if np.array_equal([1,  0,  1,  0,  0,  1,  1,  1,  0,  0,  0],ent.state[:11]):
 		            	print ('HIT\n\n\n')
 	    #keep decreasing epsilon so we can chose from the Q table more often 		
@@ -572,6 +589,6 @@ def runLearner(epochs,gamma,learningRate,epsilon):
 
 
 
-runLearner(329,1,1,1)
+runLearner(658,1,1,1)
 
 
