@@ -1,7 +1,12 @@
 import csv
 import numpy as np
 import sklearn as sk
+import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn import cross_validation, preprocessing, ensemble
+from sklearn.datasets import make_classification
+from sklearn.ensemble import RandomForestClassifier
+
 
 #seed for splitting data into training and testing 
 random_state = np.random.RandomState(0) 
@@ -45,6 +50,18 @@ print("\nThis model scored: ", rf.score(X_test,y_test))
 
 #store the predictions as an array of 1s and 0s representing high and low
 predictions = rf.predict(X_test)
+
+#calculate the importance of each feature
+importance=rf.feature_importances_
+importance=pd.DataFrame(importance, index=data.columns, columns=["Importance"])
+importance["Std"]= np.std([tree.feature_importances_ for tree in rf.estmators_],axis=0)
+
+x=range(importance.shap[0])
+y=importance.ix[:,0]
+yerr=importance.ix[:,1]
+
+plt.bar(x,y,yerr=yerr, align="center")
+plt.show()
 
 #initialize array for storing text interpretation
 readable_pred = []

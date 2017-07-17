@@ -318,6 +318,7 @@ for i in range(4):
 
         qval = model.predict(state.reshape(1,64), batch_size=1)
 
+
         print ('Q Table:', qval)
         print()
         if (random.random() < epsilon): #choose random action
@@ -377,10 +378,3 @@ for i in range(4):
         clear_output(wait=True)
     if epsilon > 0.1: #decrement epsilon over time
         epsilon -= (1/epochs)
-
-
-
-
-
-
-
