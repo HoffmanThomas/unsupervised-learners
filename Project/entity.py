@@ -1,11 +1,9 @@
 import numpy as np
 
-
-
 class Entity:
-    def __init__(self, data):
+    def __init__(self, data, numEnrichFields):
         self.data = data
-        self.state = self.genState(self.data)
+        self.state = self.genState(self.data, numEnrichFields)
         self.policy = []
 
     def genState(self, data, numEnrichFields = 6):
