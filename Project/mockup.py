@@ -539,7 +539,6 @@ def runLearner(epochs,gamma,learningRate,epsilon):
 		        y[:] = qval[:]
 
 		        # if we're in a non-terminal state
-		        if reward < 4 :
 		        if reward < 3:
 
 		            update = learningRate * (reward + (gamma * maxQ))
