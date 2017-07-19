@@ -1,0 +1,85 @@
+DATE,CURRENT_THREAT,IP,URL,HASH,KNOWN_THREAT,THREAT_LV,THREAT_LV_LOW,THREAT_LV_MED,THREAT_LV_HI,THREAT_LV_UNDEF,CLASS,Notes
+"June 4th 2017, 19:00:00.000",TRUE,185.62.189.129,,,Hash,Low,Low,,,,RH,
+"March 10th 2016, 18:00:00.000",FALSE,213.231.5.12,,,Hash,Low,Low,,,,RH,
+"June 11th 2017, 19:00:00.000",TRUE,185.60.216.35,,,Hash,Low,Low,,,,RH,
+"June 4th 2017, 19:00:00.000",TRUE,62.210.139.92,,,Hash,Low,Low,,,,RH,
+"June 4th 2017, 19:00:00.000",TRUE,62.210.139.92,,,Hash,Low,Low,,,,RH,
+"March 10th 2016, 18:00:00.000",FALSE,8.8.8.8,,,Hash,Low,Low,,,,FP,
+"March 10th 2016, 18:00:00.000",FALSE,,xnxx[.]com,,Hash,Low,Low,,,,RH,
+"June 26th 2017, 19:00:00.000",TRUE,,,dc39a7c3de4a13ca1ddd43b16f161430a017d82d347bb06e622ac246d301ff78,,Undefined,,,,Undefined,TP,
+"March 6th 2017, 18:00:00.000",TRUE,109.169.61.8,,,,Undefined,,,,Undefined,FP,TP at one time but old and possibly FP 
+"June 21st 2017, 19:00:00.000",TRUE,,,a053a2a795f056c9687f03a4a1ccfd842bc9cd10bc06bbb99da8283c078e78b6,,Undefined,,,,Undefined,TP,
+"June 21st 2017, 19:00:00.000",TRUE,,,82502191c9484b04d685374f9879a0066069c49b8acae7a04b01d38d07e8eca0,,Undefined,,,,Undefined,FP,FP because this is a file that is part of malware but also port of a lot of other things
+"June 22nd 2017, 19:00:00.000",TRUE,89.45.235.21,,,WannaCry,Undefined,,,,Undefined,TP,
+"June 22nd 2017, 19:00:00.000",TRUE,81.30.158.223,,,WannaCry,Undefined,,,,Undefined,TP,
+"June 22nd 2017, 19:00:00.000",TRUE,81.30.158.223,,,WannaCry,Undefined,,,,Undefined,TP,
+"June 22nd 2017, 19:00:00.000",TRUE,188.166.23.127,,,WannaCry,Undefined,,,,Undefined,TP,
+"June 22nd 2017, 19:00:00.000",TRUE,89.45.235.21,,,WannaCry,Undefined,,,,Undefined,TP,
+"March 24th 2016, 19:00:00.000",FALSE,103.9.103.191,,,,Undefined,,,,Undefined,TP,
+"March 24th 2016, 19:00:00.000",FALSE,103.9.103.191,,,,Undefined,,,,Undefined,TP,
+"June 13th 2017, 19:00:00.000",TRUE,,api-restlet[.]com,,,Undefined,,,,Undefined,RH,probably FP but could be related to malicious adware
+"May 25th 2017, 19:00:00.000",TRUE,,s29.postimg[.]org,,,Low,Low,,,,TP,
+"May 25th 2017, 19:00:00.000",TRUE,213.174.135.1,,,,Low,Low,,,,TP,
+"June 19th 2016, 19:00:00.000",FALSE,209.99.40.222,,,APT,Medium,,Medium,,,FP,TP at one time but old and possibly FP 
+"June 19th 2016, 19:00:00.000",FALSE,209.99.40.225,,,APT,Medium,,Medium,,,FP,TP at one time but old and possibly FP 
+"October 11th 2016, 19:00:00.000",FALSE,209.99.40.226,,,APT,Medium,,Medium,,,FP,TP at one time but old and possibly FP 
+"October 11th 2016, 19:00:00.000",FALSE,209.99.40.226,,,APT,Medium,,Medium,,,FP,TP at one time but old and possibly FP 
+"October 25th 2016, 19:00:00.000",FALSE,209.99.40.223,,,APT,Medium,,Medium,,,FP,TP at one time but old and possibly FP 
+"October 25th 2016, 19:00:00.000",FALSE,209.99.40.227,,,APT,Medium,,Medium,,,FP,TP at one time but old and possibly FP 
+"April 24th 2017, 19:00:00.000",TRUE,80.82.69.134,,,APT,Medium,,Medium,,,FP,TP at one time but old and possibly FP 
+"June 11th 2017, 19:00:00.000",TRUE,,,,Hash,Low,Low,,,,FP,
+"June 5th 2017, 19:00:00.000",TRUE,,www.mytheresa[.]com,,,Low,Low,,,,FP,
+"June 7th 2017, 19:00:00.000",TRUE,10.0.0.3,,,Hash,Low,Low,,,,FP,
+"June 12th 2017, 19:00:00.000",TRUE,197.163.132.194,,,,Low,Low,,,,TP,
+"June 12th 2017, 19:00:00.000",TRUE,78.38.150.25,,,,Low,Low,,,,TP,
+"November 19th 2014, 18:00:00.000",FALSE,0.0.0.0,,,,Undefined,,,,Undefined,FP,
+"June 8th 2017, 19:00:00.000",TRUE,,is.gd,,,Low,Low,,,,,
+"June 20th 2017, 19:00:00.000",TRUE,195.110.124.188,,,,Low,Low,,,,TP,
+"June 20th 2017, 19:00:00.000",TRUE,108.174.147.136,,,,Low,Low,,,,TP,
+"June 20th 2017, 19:00:00.000",TRUE,69.65.3.213,,,,Low,Low,,,,TP,
+"June 20th 2017, 19:00:00.000",TRUE,89.231.13.33,,,,Low,Low,,,,TP,
+"June 8th 2017, 19:00:00.000",TRUE,81.169.145.88,,,,Low,Low,,,,TP,
+"June 14th 2017, 19:00:00.000",TRUE,103.195.185.222,,,,,,,,,TP,
+"June 8th 2017, 19:00:00.000",TRUE,,www.proofpoint[.]com,,,Low,Low,,,,FP,
+"June 21st 2017, 19:00:00.000",TRUE,91.198.22.70,,,RAT,Low,Low,,,,TP,
+"June 21st 2017, 19:00:00.000",TRUE,216.146.43.71,,,RAT,Low,Low,,,,TP,
+"June 21st 2017, 19:00:00.000",TRUE,,checkip.dyndns[.]org,,RAT,Low,Low,,,,FP,
+"June 21st 2017, 19:00:00.000",TRUE,216.146.38.70,,,RAT,Low,Low,,,,TP,
+"June 8th 2017, 19:00:00.000",TRUE,185.26.122.68,,,,Low,Low,,,,TP,
+"June 15th 2017, 19:00:00.000",TRUE,,www.symantec[.]com,,RAT,Low,Low,,,,FP,
+"June 1st 2017, 19:00:00.000",TRUE,,imgh[.]us,,RAT,Low,Low,,,,TP,
+"June 1st 2017, 19:00:00.000",TRUE,162.255.119.248,,,,Low,Low,,,,TP,
+"June 19th 2017, 19:00:00.000",TRUE,,,014891c5e4525f7bd94646af64137497338edda2a12985a9197b7603f54d5516,,Low,Low,,,,TP,
+"June 8th 2017, 19:00:00.000",TRUE,185.53.179.7,,,,Low,Low,,,,RH,
+"June 21st 2017, 19:00:00.000",TRUE,17.178.96.59,,,,Low,Low,,,,RH,
+"June 21st 2017, 19:00:00.000",TRUE,108.174.10.10,,,,Low,Low,,,,RH,
+"June 11th 2017, 19:00:00.000",TRUE,81.169.145.68,,,,,,,,,FP,
+"June 14th 2017, 19:00:00.000",TRUE,92.43.113.68,,,,Low,Low,,,,TP,
+"March 10th 2016, 18:00:00.000",FALSE,,republika[.]pl,,,Low,Low,,,,TP,
+"March 13th 2016, 19:00:00.000",FALSE,85.248.29.36,,,,Low,Low,,,,TP,
+"March 15th 2016, 19:00:00.000",FALSE,69.195.124.132,,,,Low,Low,,,,TP,
+"March 16th 2016, 19:00:00.000",FALSE,208.91.198.130,,,,Low,Low,,,,TP,
+"June 20th 2017, 19:00:00.000",TRUE,204.79.197.200,,,,Low,Low,,,,RH,
+"June 13th 2016, 19:00:00.000",FALSE,162.255.119.250,,,APT,Medium,,Medium,,,RH,
+"January 19th 2015, 18:00:00.000",FALSE,,microsoft[.]com,,,High,,,High,,FP,
+"May 29th 2013, 19:00:00.000",FALSE,205.178.189.131,,,,Low,Low,,,,RH,
+"May 22nd 2016, 19:00:00.000",FALSE,80.74.145.80,,,APT,High,,,High,,RH,
+"May 22nd 2016, 19:00:00.000",FALSE,80.74.145.80,,,APT,High,,,High,,RH,
+"June 8th 2017, 19:00:00.000",TRUE,,dfrs12kz9qye2.cloudfront[.]net,,,Low,Low,,,,TP,
+"June 8th 2017, 19:00:00.000",TRUE,,dc44qjwal3p07.cloudfront[.]net,,,Low,Low,,,,TP,
+"March 27th 2016, 19:00:00.000",FALSE,195.22.28.198,,,,Low,Low,,,,TP,
+"June 15th 2017, 19:00:00.000",TRUE,212.92.106.156,,,,Medium,,Medium,,,Unknown… ,Not enough information to determine 
+"August 13th 2012, 19:00:00.000",FALSE,,www.microsoft[.]com,,,Undefined,,,,Undefined,FP,
+"October 8th 2014, 19:00:00.000",FALSE,10.0.1.9,,,,Medium,,Medium,,,FP,
+"November 17th 2014, 18:00:00.000",FALSE,127.0.0.1,,,APT,Undefined,,,,Undefined,FP,
+"November 17th 2014, 18:00:00.000",FALSE,208.91.197.132,,,APT,Undefined,,,,Undefined,FP,TP at one time but old and possibly FP 
+"October 1st 2014, 19:00:00.000",FALSE,198.20.69.74,,,,Low,Low,,,,RH,
+"May 23rd 2017, 19:00:00.000",TRUE,,b.codeonclick.com,,,Medium,,Medium,,,RH,Very interesting RH which is likley TP with lots of pivot points
+"May 11th 2017, 19:00:00.000",TRUE,,www.bancomer.com[.]mx,,WannaCry,High,,,High,,TP,
+"May 11th 2017, 19:00:00.000",TRUE,195.22.26.248,,,WannaCry,High,,,High,,TP,
+"May 11th 2017, 19:00:00.000",TRUE,192.237.153.208,,,WannaCry,High,,,High,,TP,
+"May 11th 2017, 19:00:00.000",TRUE,75.126.5.21,,,WannaCry,High,,,High,,TP,
+"May 11th 2017, 19:00:00.000",TRUE,46.101.166.19,,,WannaCry,High,,,High,,TP,
+"June 11th 2017, 19:00:00.000",TRUE,,www.download.windowsupdate[.]com,,,Low,Low,,,,FP,
+"June 11th 2017, 19:00:00.000",TRUE,,ipecho[.]net,,,Low,Low,,,,RH,Very interesting RH which is likley TP with lots of pivot points
+"July 10th 2016, 19:00:00.000",FALSE,5.135.183.154,,,APT,Medium,,Medium,,,RH,Very interesting RH which is likley TP with lots of pivot points including a MD5 in VT wich looks very malicious 
